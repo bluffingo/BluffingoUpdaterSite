@@ -14,8 +14,8 @@ $version = $database->fetchArray($database->query(
 FROM versions v1
 INNER JOIN software s ON v1.app_id = s.app_id 
 WHERE v1.released <= ?
-AND v1.version = (
-    SELECT MAX(v2.version) 
+AND v1.released = (
+    SELECT MAX(v2.released) 
     FROM versions v2 
     WHERE v2.app_id = v1.app_id
     AND v2.released <= ?
