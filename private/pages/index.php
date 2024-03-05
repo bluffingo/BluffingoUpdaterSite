@@ -25,6 +25,21 @@ if (isset($_POST["addButton"])) {
         $database->query("INSERT INTO versions (app_id, version, released, url) VALUES (?,?,?,?)",
             [$_POST["softwareInput"], $_POST["versionInput"], $_POST["releasedInput"], $_POST["downloadInput"]]);
     }
+
+    if ($_POST["addButton"] == "AddNewApplication") {
+        if ($database->query("SELECT * FROM software WHERE app_id = ?", $_POST["internalIDInput"]))
+        {
+            die("This ID has already been used.");
+        }
+
+        if ($database->query("SELECT * FROM software WHERE name = ?", $_POST["appNameInput"]))
+        {
+            die("This application has already been added.");
+        }
+
+        $database->query("INSERT INTO software (app_id, name, author) VALUES (?,?,?)",
+            [$_POST["internalIDInput"], $_POST["appNameInput"], $_POST["publisherInput"]]);
+    }
 }
 
 $twig = new Templating();

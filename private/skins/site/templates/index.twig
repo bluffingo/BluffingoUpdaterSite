@@ -2,33 +2,51 @@
 
 {% block content %}
   <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-4">
+      <h2>Add application</h2>
+      <form class="form" action="/index" method="post" id="stupidfuckingshitthesecond">
+        <div class="mb-3">
+          <label for="appNameInput" class="form-label">Application</label>
+          <input type="text" class="form-control" name="appNameInput" id="appNameInput">
+        </div>
+        <div class="mb-3">
+          <label for="internalIDInput" class="form-label">Internal ID</label>
+          <input type="text" class="form-control" name="internalIDInput" id="internalIDInput">
+        </div>
+        <div class="mb-3">
+          <label for="publisherInput" class="form-label">Publisher</label>
+          <input type="text" class="form-control" name="publisherInput" id="publisherInput">
+        </div>
+        <button type="submit" class="btn btn-primary" name="addButton" value="AddNewApplication">Add</button>
+      </form>
+      <hr>
+      <h2>Add version</h2>
       <form class="form" action="/index" method="post" id="stupidfuckingshit">
-        <div class="form-group">
-          <label for="softwareInput">Application</label>
-          <select id="softwareInput" class="form-control" name="softwareInput">
+        <div class="mb-3">
+          <label for="softwareInput" class="form-label">Application</label>
+          <select id="softwareInput" class="form-select"  name="softwareInput">
             {% for software in software %}
               <option value="{{ software.app_id }}">{{ software.name }}</option>
             {% endfor %}
           </select>
         </div>
-        <div class="form-group">
-          <label for="versionInput">Version</label>
+        <div class="mb-3">
+          <label for="versionInput" class="form-label">Version</label>
           <input type="text" class="form-control" name="versionInput" id="versionInput">
         </div>
-        <div class="form-group">
-          <label for="downloadInput">Download URL</label>
+        <div class="mb-3">
+          <label for="downloadInput" class="form-label">Download URL</label>
           <input type="text" class="form-control" name="downloadInput" id="downloadInput">
         </div>
-        <div class="form-group">
-          <label for="releasedInput">Release Date</label>
+        <div class="mb-3">
+          <label for="releasedInput" class="form-label">Release Date</label>
           <input type="date" class="form-control" name="releasedInput" id="releasedInput">
         </div>
         <button type="submit" class="btn btn-primary" name="addButton" value="AddNewDownload">Add</button>
       </form>
     </div>
-    <div class="col-md-9">
-      <table class="table table-striped table-condensed">
+    <div class="col-md-8">
+      <table class="table table-striped table-sm">
         <tr>
           <th>App</th>
           <th>Release Date</th>
