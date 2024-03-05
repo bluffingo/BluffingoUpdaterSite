@@ -1,0 +1,17 @@
+## User-generated files
+private/conf/config.php
+private/templates/cache/
+templates/cache/
+cache/
+
+## Composer
+vendor/
+composer.phar
+composer.lock
+
+## Admin features
+adminer-*.php
+/latest-*-*.php
+*/pma
+*/phpmyadmin
+*/phpma
